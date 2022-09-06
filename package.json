@@ -8,6 +8,10 @@
     "test": "jest",
     "prepare": "rm -rf dist && tsc --declaration"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/green-kong/kong-DID"
+  },
   "author": "dev_kong",
   "license": "ISC",
   "peerDependencies": {
