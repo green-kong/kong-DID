@@ -50,6 +50,8 @@ export default did;
 
 ## 🫒 Using kong-DID
 
+#### Get user information
+
 ```ts
 // server.ts
 
@@ -75,6 +77,21 @@ app.get('/did/redirect', async (req, res) => {
       userCode: 'random5474768asdlkfjd65756765'
     }
   */
+});
+
+app.listen(3000);
+```
+
+#### Disconnect
+
+```ts
+const express = require('express');
+const app = express();
+const did = require('./did');
+
+app.post('/disconnect', (req, res) => {
+  const { userCode } = req.body;
+  const result = did.disconnect(userCode); // return boolean
 });
 
 app.listen(3000);

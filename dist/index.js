@@ -40,6 +40,35 @@ class DID {
             return userInfo;
         });
     }
+    disconnect(userCode) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!userCode) {
+                throw new Error('userCode is undefined!');
+            }
+            const disconnectResult = yield DID.disconnectFromApp(userCode, this.clientId);
+            if (disconnectResult) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
+    }
+    static disconnectFromApp(userCode, clientId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const body = { userCode, clientId };
+                const response = yield axios_1.default.post('http://localhost:4000/user/disconnectFromApp', body);
+                if (response.data) {
+                    return true;
+                }
+            }
+            catch (error) {
+                console.log(error);
+                return false;
+            }
+        });
+    }
     static getCode(req) {
         const { code } = req.query;
         return code;

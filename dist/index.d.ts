@@ -21,6 +21,8 @@ export declare class DID {
     constructor(config: IConfig);
     getAuthUrl(): string;
     getUserInfo(req: Request): Promise<IUserData>;
+    disconnect(userCode: string): Promise<boolean>;
+    static disconnectFromApp(userCode: string, clientId: string): Promise<boolean | undefined>;
     static getCode(req: Request): string;
     static getToken(code: string): Promise<string | false>;
     static getHeader(token: string): IHeader;

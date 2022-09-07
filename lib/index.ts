@@ -53,6 +53,39 @@ export class DID {
     return userInfo;
   }
 
+  async disconnect(userCode: string): Promise<boolean> {
+    if (!userCode) {
+      throw new Error('userCode is undefined!');
+    }
+
+    const disconnectResult = await DID.disconnectFromApp(
+      userCode,
+      this.clientId
+    );
+
+    if (disconnectResult) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  static async disconnectFromApp(userCode: string, clientId: string) {
+    try {
+      const body = { userCode, clientId };
+      const response = await axios.post(
+        'http://localhost:4000/user/disconnectFromApp',
+        body
+      );
+      if (response.data) {
+        return true;
+      }
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+
   static getCode(req: Request): string {
     const { code } = req.query;
     return code as string;
