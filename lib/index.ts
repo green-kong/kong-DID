@@ -18,6 +18,12 @@ interface IUserData {
   userCode: string;
 }
 
+interface ICheckPoint {
+  a_idx: string;
+  name: string;
+  pt: string;
+}
+
 export class DID {
   clientId: string;
   redirectURI: string;
@@ -66,6 +72,20 @@ export class DID {
     if (disconnectResult) {
       return true;
     } else {
+      return false;
+    }
+  }
+
+  async checkPoint(userCode: string): Promise<ICheckPoint | false> {
+    try {
+      const body = { userCode, clientId: this.clientId };
+      const response = await axios.post(
+        'http://localhost:4000/app/checkPoint',
+        body
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error);
       return false;
     }
   }

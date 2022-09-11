@@ -1,6 +1,6 @@
 {
   "name": "kong-did",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "HELPLESS-DID authorize library",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

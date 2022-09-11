@@ -97,4 +97,30 @@ app.post('/disconnect', (req, res) => {
 app.listen(3000);
 ```
 
+#### Check point
+
+```ts
+const express = require('express');
+const app = express();
+const did = require('./did');
+
+app.post('/checkPoint', (req, res) => {
+  const { userCode } = req.body;
+  const result = did.checkPoint(userCode);
+
+  console.log(result);
+  /*
+  [
+    {
+      idx: 44,
+      name: 'site-a',
+      pt: 2800
+    }
+  ]
+  */
+});
+
+app.listen(3000);
+```
+
 That's it, have fun.
