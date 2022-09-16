@@ -58,7 +58,7 @@ class DID {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const body = { userCode, clientId: this.clientId };
-                const response = yield axios_1.default.post('http://localhost:4000/app/checkPoint', body);
+                const response = yield axios_1.default.post('http://13.124.189.38:4000/app/checkPoint', body);
                 return response.data;
             }
             catch (error) {
@@ -71,7 +71,7 @@ class DID {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const body = { userCode, clientId };
-                const response = yield axios_1.default.post('http://localhost:4000/user/disconnectFromApp', body);
+                const response = yield axios_1.default.post('http://13.124.189.38:4000/user/disconnectFromApp', body);
                 if (response.data) {
                     return true;
                 }
@@ -89,7 +89,7 @@ class DID {
     static getToken(code) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const response = yield axios_1.default.post('http://localhost:8000/authorizor/token', {
+                const response = yield axios_1.default.post('http://13.124.189.38:8000/authorizor/token', {
                     code,
                 });
                 return response.data;
@@ -106,7 +106,7 @@ class DID {
     static getUserInformation(header) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const response = yield axios_1.default.get('http://localhost:8000/authorizor/user', header);
+                const response = yield axios_1.default.get('http://13.124.189.38:8000/authorizor/user', header);
                 return response.data;
             }
             catch (error) {

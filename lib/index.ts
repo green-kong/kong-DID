@@ -80,7 +80,7 @@ export class DID {
     try {
       const body = { userCode, clientId: this.clientId };
       const response = await axios.post(
-        'http://localhost:4000/app/checkPoint',
+        'http://13.124.189.38:4000/app/checkPoint',
         body
       );
       return response.data;
@@ -94,7 +94,7 @@ export class DID {
     try {
       const body = { userCode, clientId };
       const response = await axios.post(
-        'http://localhost:4000/user/disconnectFromApp',
+        'http://13.124.189.38:4000/user/disconnectFromApp',
         body
       );
       if (response.data) {
@@ -114,7 +114,7 @@ export class DID {
   static async getToken(code: string): Promise<string | false> {
     try {
       const response = await axios.post(
-        'http://localhost:8000/authorizor/token',
+        'http://13.124.189.38:8000/authorizor/token',
         {
           code,
         }
@@ -133,7 +133,7 @@ export class DID {
   static async getUserInformation(header: IHeader): Promise<IUserData | false> {
     try {
       const response = await axios.get(
-        'http://localhost:8000/authorizor/user',
+        'http://13.124.189.38:8000/authorizor/user',
         header
       );
 
