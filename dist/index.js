@@ -54,6 +54,19 @@ class DID {
             }
         });
     }
+    checkPoint(userCode) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const body = { userCode, clientId: this.clientId };
+                const response = yield axios_1.default.post('http://localhost:4000/app/checkPoint', body);
+                return response.data;
+            }
+            catch (error) {
+                console.log(error);
+                return false;
+            }
+        });
+    }
     static disconnectFromApp(userCode, clientId) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

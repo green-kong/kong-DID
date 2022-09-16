@@ -116,6 +116,7 @@ app.post('/checkPoint', (req, res) => {
       name: 'site-a',
       pt: 2800
     }
+    ...
   ]
   */
 });

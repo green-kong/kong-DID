@@ -15,6 +15,11 @@ interface IUserData {
     email: string;
     userCode: string;
 }
+interface ICheckPoint {
+    a_idx: string;
+    name: string;
+    pt: string;
+}
 export declare class DID {
     clientId: string;
     redirectURI: string;
@@ -22,6 +27,7 @@ export declare class DID {
     getAuthUrl(): string;
     getUserInfo(req: Request): Promise<IUserData>;
     disconnect(userCode: string): Promise<boolean>;
+    checkPoint(userCode: string): Promise<ICheckPoint | false>;
     static disconnectFromApp(userCode: string, clientId: string): Promise<boolean | undefined>;
     static getCode(req: Request): string;
     static getToken(code: string): Promise<string | false>;

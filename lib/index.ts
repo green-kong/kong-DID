@@ -34,7 +34,7 @@ export class DID {
   }
 
   getAuthUrl(): string {
-    return `http://localhost:8000/authorizor/auth?clientID=${this.clientId}&redirectURI=${this.redirectURI}`;
+    return `http://13.124.189.38:8000/authorizor/auth?clientID=${this.clientId}&redirectURI=${this.redirectURI}`;
   }
 
   async getUserInfo(req: Request): Promise<IUserData> {
