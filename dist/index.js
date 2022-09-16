@@ -20,7 +20,7 @@ class DID {
         this.redirectURI = config.redirectURI;
     }
     getAuthUrl() {
-        return `http://localhost:8000/authorizor/auth?clientID=${this.clientId}&redirectURI=${this.redirectURI}`;
+        return `http://13.124.189.38:8000/authorizor/auth?clientID=${this.clientId}&redirectURI=${this.redirectURI}`;
     }
     getUserInfo(req) {
         return __awaiter(this, void 0, void 0, function* () {
